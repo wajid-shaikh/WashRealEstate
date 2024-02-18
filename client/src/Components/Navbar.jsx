@@ -114,7 +114,7 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </span>
             <span className=" text-white py-1 px-2 hover:text-[#E66912] rounded-sm font-semibold mx-4 transition-all ease-in-out duration-200 font-sans cursor-pointer">
-              <Link to={`/api/createuser`}>
+              <Link to={`/api/createproperties`}>
                 <FontAwesomeIcon icon={faUser} />
               </Link>
             </span>

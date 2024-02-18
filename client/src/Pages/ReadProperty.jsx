@@ -4,15 +4,14 @@ import { Link, useParams } from "react-router-dom";
 import SideBar from "./SideBar";
 
 const ReadProperty = () => {
+  const API = import.meta.env.VITE_API_URL;
   const [readProperty, setReadProperty] = useState({});
 
   const { id } = useParams();
 
   const fetchSingleData = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:8000/api/readproperty/${id}`
-      );
+      const response = await axios.get(`${API}/api/readproperty/${id}`);
       setReadProperty(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -170,7 +169,7 @@ const ReadProperty = () => {
                           style={{ height: "90px", width: "160px" }}
                         >
                           <img
-                            src={`http://localhost:8000/${image}`}
+                            src={`${API}/${image}`}
                             alt=""
                             className="object-cover hover:scale-125 transition-all ease-in-out duration-500"
                             style={{ width: "100%", height: "100%" }}

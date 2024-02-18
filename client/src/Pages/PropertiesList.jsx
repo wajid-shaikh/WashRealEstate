@@ -10,16 +10,17 @@ import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
 
 const PropertiesList = () => {
+  const API = import.meta.env.VITE_API_URL;
   const [allProperties, setAllProperties] = useState([]);
 
   const getAllProperties = async () => {
-    const response = await axios.get(`http://localhost:8000/api/properties`);
+    const response = await axios.get(`${API}/api/properties`);
     setAllProperties(response.data);
   };
 
   const deleteProperty = (id) => {
     if (window.confirm("Are you Sure to delete?")) {
-      axios.delete(`http://localhost:8000/api/deleteproperty/${id}`);
+      axios.delete(`${API}/api/deleteproperty/${id}`);
       setTimeout(() => {
         getAllProperties();
       }, 1000);

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const UpdateProperty = () => {
+  const API = import.meta.env.VITE_API_URL;
   const { id } = useParams();
 
   const [propertyData, setPropertyData] = useState({
@@ -61,7 +62,7 @@ const UpdateProperty = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/updateproperty/${id}`,
+        `${API}/api/updateproperty/${id}`,
 
         formData
       );
@@ -86,9 +87,7 @@ const UpdateProperty = () => {
 
   const getPropertyData = async (id) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8000/api/readproperty/${id}`
-      );
+      const response = await axios.get(`${API}/api/readproperty/${id}`);
       console.log(response);
       setPropertyData(response.data);
       // setUpdate({

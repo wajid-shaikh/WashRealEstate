@@ -15,6 +15,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
+  const API = import.meta.env.VITE_API_URL;
+  // console.log(API);
   const [allProperties, setAllProperties] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,7 +30,7 @@ const Property = () => {
 
   const getAllProperties = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/properties`);
+      const response = await axios.get(`${API}/api/properties`);
       setAllProperties(response.data);
     } catch (error) {
       console.error("Error fetching properties:", error);
@@ -58,7 +60,7 @@ const Property = () => {
               <div className=" overflow-hidden inline-block h-1/2 rounded-t-lg">
                 {item.images.length > 0 && (
                   <img
-                    src={`http://localhost:8000/${item.images[0]}`}
+                    src={`${API}/${item.images[0]}`}
                     alt=""
                     className=" w-full  rounded-t-lg hover:scale-125 transition-all ease-in-out duration-500 cursor-pointer"
                   />

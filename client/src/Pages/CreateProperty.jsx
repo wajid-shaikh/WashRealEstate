@@ -3,6 +3,7 @@ import axios from "axios";
 import SideBar from "./SideBar";
 
 const CreateProperty = () => {
+  const API = import.meta.env.VITE_API_URL;
   const [propertyData, setPropertyData] = useState({
     propertyType: "",
     images: [],
@@ -58,7 +59,7 @@ const CreateProperty = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/createproperties",
+        `${API}/api/createproperties`,
         formData
       );
       setPropertyData({

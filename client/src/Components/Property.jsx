@@ -61,7 +61,11 @@ const Property = () => {
                 {item.images.length > 0 && (
                   <img
                     src={`${API}/${item.images[0]}`}
-                    alt="https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="Alternate Image"
+                    onError={(e) => {
+                      e.target.src =
+                        "https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+                    }}
                     className=" w-full  rounded-t-lg hover:scale-125 transition-all ease-in-out duration-500 cursor-pointer"
                   />
                 )}

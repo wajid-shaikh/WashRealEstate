@@ -42,12 +42,12 @@ import {
 
 export const NavbarSection = {
   logo: "Real Estate",
-  Navlink1: "Home",
-  Navlink2: "About",
-  Navlink3: "Property",
-  Navlink4: "Services",
-  Navlink5: "Contact",
-  Navlink6: "Aminities",
+  visit1: "Home",
+  visit2: "About",
+  visit3: "Property",
+  visit4: "Services",
+  visit5: "Contact",
+  visit6: "Aminities",
   ic1: "searchSvg",
   ic2: "LoginSvg",
   ic3: "CartSvg",

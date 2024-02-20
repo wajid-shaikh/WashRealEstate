@@ -7,9 +7,13 @@ const Router = require("./routes/route");
 
 app.use("/uploads", express.static("uploads"));
 
-// middlewares
+// Allow requests from washrealestate.vercel.app
+const corsOptions = {
+  origin: "https://washrealestate.vercel.app",
+};
 
-app.use(cors());
+// middlewares
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(Router);
 app.use(express.urlencoded({ extended: false }));

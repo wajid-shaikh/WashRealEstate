@@ -70,7 +70,7 @@ router.post(
 router.get("/api/properties", async (req, res) => {
   try {
     const properties = await Property.find();
-    console.log(properties);
+    // console.log(properties);
     res.status(200).json(properties);
   } catch (error) {
     console.error(error);

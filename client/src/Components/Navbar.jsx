@@ -47,7 +47,7 @@ const Navbar = () => {
         scrolled || isPropertyPage() ? "bg-[#05445E]" : "bg-transparent"
       }`}
     >
-      <div className=" flex justify-between mx-10 md:mx-20 lg:mx-20 xl:mx-20 flex-grow">
+      <div className=" flex justify-between mx-5 md:mx-20 lg:mx-20 xl:mx-20 flex-grow">
         {/* Left side with an icon */}
         <div className="flex items-start md:items-center lg:items-center xl:items-center md:space-x-2 lg:space-x-2 xl:space-x-2">
           {/* <img src="icon.png" alt="" className="h-8 w-8" /> */}

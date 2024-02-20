@@ -195,7 +195,7 @@ export const footerSection = {
     {
       id: 0,
       icon: faLocationDot,
-      textName: "Chowk Mandi, kamal Auto, Ayodhya, UP.",
+      textName: "Indranagar, Jogging Track, Wadala, Nashik.",
     },
     {
       id: 1,

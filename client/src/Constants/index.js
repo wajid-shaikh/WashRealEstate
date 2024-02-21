@@ -297,7 +297,7 @@ export const footerSection = {
 };
 
 export const propertiesSection = {
-  propertyHeading: "Our Listed Properties",
+  propertyHeading: "Listed Properties",
   properties: [
     {
       id: 0,

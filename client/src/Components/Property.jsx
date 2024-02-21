@@ -47,11 +47,14 @@ const Property = () => {
   return (
     <>
       <Navbar />
-      <div className=" mx-20 mt-24 text-center mb-10">
+      <div className=" mx-5 md:mx-20 lg:mx-20 xl:mx-20 mt-24 text-center mb-10">
         <div className="font-extrabold text-[45px] text-[#05445E]">
           {propertiesSection.propertyHeading}
         </div>
-        <div className="grid grid-cols-3 gap-4 text-gray-300">
+        {/* {allProperties.length > 0 && (
+          )} */}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 text-gray-300">
           {currentItems.map((item) => (
             <div
               className="relative border-white border-2 h-96 bg-[#05445E] rounded-lg"

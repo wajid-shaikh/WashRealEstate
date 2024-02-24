@@ -84,12 +84,12 @@ const CreateProperty = () => {
 
   return (
     <>
-      <div className="grid grid-cols-5 bg-[#05445E] h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 bg-[#05445E] md:h-screen lg:h-screen xl:h-screen">
         <div className="col-span-1">
           <SideBar />
         </div>
         <div className="col-span-4 mt-5 mb-10">
-          <h1 className="font-bold text-[30px] text-white mx-5">
+          <h1 className="font-bold text-[30px] text-center md:text-left lg:text-left xl:text-left text-white mx-5">
             Create a property
           </h1>
           <form
@@ -97,7 +97,7 @@ const CreateProperty = () => {
             className=" flex flex-col mx-5 mt-5 font-semibold text-white"
           >
             <div className=" bg-slate-300 rounded-t-lg px-5 pt-5 shadow-black shadow-xl">
-              <div className=" grid grid-cols-2 gap-4">
+              <div className=" grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2 gap-4">
                 <div className=" bg-gradient-to-r from-[#F0A529] to-[#E18222] px-4 py-5 rounded-md mb-8 shadow-black shadow-lg">
                   <div className=" grid grid-cols-1 ">
                     <div className=" mb-2">
@@ -207,7 +207,7 @@ const CreateProperty = () => {
                 </div>
               </div>
 
-              <div className=" grid grid-cols-2 gap-4">
+              <div className=" grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2 gap-4">
                 <div className=" bg-gradient-to-r from-[#F0A529] to-[#E18222] px-4 py-5 rounded-md mb-8 shadow-black shadow-lg">
                   <div className=" grid grid-cols-1">
                     <div className=" mb-2">

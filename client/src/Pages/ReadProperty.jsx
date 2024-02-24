@@ -11,7 +11,9 @@ const ReadProperty = () => {
 
   const fetchSingleData = async () => {
     try {
-      const response = await axios.get(`${API}/api/readproperty/${id}`);
+      const response = await axios.get(`${API}/api/readproperty/${id}`, {
+        headers: { "Content-Type": "application/json" },
+      });
       setReadProperty(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);

@@ -14,7 +14,9 @@ const PropertiesList = () => {
   const [allProperties, setAllProperties] = useState([]);
 
   const getAllProperties = async () => {
-    const response = await axios.get(`${API}/api/properties`);
+    const response = await axios.get(`${API}/api/properties`, {
+      headers: { "Content-Type": "application/json" },
+    });
     setAllProperties(response.data);
   };
 

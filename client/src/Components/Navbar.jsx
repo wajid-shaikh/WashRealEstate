@@ -18,6 +18,15 @@ const Navbar = () => {
   // Navbar background appear after scroll down Scroll Effect
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  let navProp = false;
+  if (
+    location.pathname === "/property" ||
+    location.pathname === "/propertydetails"
+  ) {
+    navProp = true;
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
@@ -56,46 +65,77 @@ const Navbar = () => {
 
         {/* Center with navigation links */}
         <div className="  items-center md:space-x-5 lg:space-x-5 xl:space-x-5 font-semibold cursor-pointer hidden md:flex lg:flex xl:flex">
-          <ScrollLink
-            to="home"
-            spy={true}
-            smooth={true}
-            // offset={-80} // Adjust offset based on your layout
-            duration={1000}
-            className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans"
-          >
-            <Link to={"/"}>{NavbarSection.visit1}</Link>
-          </ScrollLink>
-          <ScrollLink
-            to="aboutus"
-            spy={true}
-            smooth={true}
-            offset={-80} // Adjust offset based on your layout
-            duration={1000}
-            className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"
-          >
-            <Link to={"/"}>{NavbarSection.visit2}</Link>
-          </ScrollLink>
-          <ScrollLink
-            to="ourServices"
-            spy={true}
-            smooth={true}
-            offset={-80} // Adjust offset based on your layout
-            duration={1000}
-            className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"
-          >
-            <Link to={"/"}>{NavbarSection.visit4}</Link>
-          </ScrollLink>
-          <ScrollLink
-            to="ourAminities"
-            spy={true}
-            smooth={true}
-            offset={-80} // Adjust offset based on your layout
-            duration={1000}
-            className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"
-          >
-            <Link to={"/"}>{NavbarSection.visit6}</Link>
-          </ScrollLink>
+          {navProp === true ? (
+            <>
+              <Link
+                to={"/"}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans"
+              >
+                {NavbarSection.visit1}
+              </Link>
+              <Link
+                to={"/"}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans"
+              >
+                {NavbarSection.visit2}
+              </Link>
+              <Link
+                to={"/"}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans"
+              >
+                {NavbarSection.visit4}
+              </Link>
+              <Link
+                to={"/"}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans"
+              >
+                {NavbarSection.visit6}
+              </Link>
+            </>
+          ) : (
+            <>
+              <ScrollLink
+                to="home"
+                spy={true}
+                smooth={true}
+                // offset={-80} // Adjust offset based on your layout
+                duration={1000}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans"
+              >
+                {NavbarSection.visit1}
+              </ScrollLink>
+              <ScrollLink
+                to="aboutus"
+                spy={true}
+                smooth={true}
+                offset={-80} // Adjust offset based on your layout
+                duration={1000}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"
+              >
+                {NavbarSection.visit2}
+              </ScrollLink>
+              <ScrollLink
+                to="ourServices"
+                spy={true}
+                smooth={true}
+                offset={-80} // Adjust offset based on your layout
+                duration={1000}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"
+              >
+                {NavbarSection.visit4}
+              </ScrollLink>
+              <ScrollLink
+                to="ourAminities"
+                spy={true}
+                smooth={true}
+                offset={-80} // Adjust offset based on your layout
+                duration={1000}
+                className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"
+              >
+                {NavbarSection.visit6}
+              </ScrollLink>
+            </>
+          )}
           <Link
             to="/property"
             className="text-white hover:text-[#E66912] rounded-lg px-2 transition-all ease-in-out duration-150 font-sans cursor-pointer"

@@ -30,7 +30,9 @@ const Property = () => {
 
   const getAllProperties = async () => {
     try {
-      const response = await axios.get(`${API}/api/properties`);
+      const response = await axios.get(`${API}/api/properties`, {
+        headers: { "Content-Type": "application/json" },
+      });
       setAllProperties(response.data);
     } catch (error) {
       console.error("Error fetching properties:", error);
@@ -41,8 +43,8 @@ const Property = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     getAllProperties();
   }, [currentPage]);
-  console.log(currentItems);
-  // console.log(propertiesSection.properties);
+  // console.log(currentItems);
+  console.log(allProperties);
 
   return (
     <>

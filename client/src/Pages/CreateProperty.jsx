@@ -25,7 +25,7 @@ const CreateProperty = () => {
       ...propertyData,
       [name]: value,
     });
-    // console.log(name, value);
+    console.log(name, value);
   };
 
   const handleImageChange = (e) => {
@@ -60,7 +60,8 @@ const CreateProperty = () => {
     try {
       const response = await axios.post(
         `${API}/api/createproperties`,
-        formData
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
       setPropertyData({
         propertyType: "",

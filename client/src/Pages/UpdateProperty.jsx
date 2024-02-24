@@ -63,8 +63,8 @@ const UpdateProperty = () => {
     try {
       const response = await axios.put(
         `${API}/api/updateproperty/${id}`,
-
-        formData
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
       setPropertyData({
         propertyType: "",
@@ -87,7 +87,9 @@ const UpdateProperty = () => {
 
   const getPropertyData = async (id) => {
     try {
-      const response = await axios.get(`${API}/api/readproperty/${id}`);
+      const response = await axios.get(`${API}/api/readproperty/${id}`, {
+        headers: { "Content-Type": "application/json" },
+      });
       console.log(response);
       setPropertyData(response.data);
       // setUpdate({

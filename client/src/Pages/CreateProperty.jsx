@@ -25,7 +25,7 @@ const CreateProperty = () => {
       ...propertyData,
       [name]: value,
     });
-    console.log(name, value);
+    // console.log(name, value);
   };
 
   const handleImageChange = (e) => {

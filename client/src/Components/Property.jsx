@@ -43,8 +43,8 @@ const Property = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     getAllProperties();
   }, [currentPage]);
-  // console.log(currentItems);
-  console.log(allProperties);
+  console.log(currentItems);
+  // console.log(allProperties.images);
 
   return (
     <>
@@ -62,16 +62,20 @@ const Property = () => {
               className="relative border-white border-2 h-96 bg-[#05445E] rounded-lg"
               key={item._id}
             >
+              {console.log(item)}
               <div className=" overflow-hidden inline-block h-1/2 rounded-t-lg">
                 {item.images.length > 0 && (
                   <img
                     src={`${API}/${item.images[0]}`}
                     alt="Alternate Image"
-                    onError={(e) => {
-                      e.target.src =
-                        "https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-                    }}
-                    className=" w-full  rounded-t-lg hover:scale-125 transition-all ease-in-out duration-500 cursor-pointer"
+                    className="w-full rounded-t-lg hover:scale-125 transition-all ease-in-out duration-500 cursor-pointer"
+                  />
+                )}
+                {item.images.length === 0 && (
+                  <img
+                    src={`https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
+                    alt="Alternate Image"
+                    className="w-full rounded-t-lg hover:scale-125 transition-all ease-in-out duration-500 cursor-pointer"
                   />
                 )}
               </div>

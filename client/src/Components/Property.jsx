@@ -62,7 +62,6 @@ const Property = () => {
               className="relative border-white border-2 h-96 bg-[#05445E] rounded-lg"
               key={item._id}
             >
-              {console.log(item)}
               <div className=" overflow-hidden inline-block h-1/2 rounded-t-lg">
                 {item.images.length > 0 && (
                   <img

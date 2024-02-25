@@ -28,12 +28,12 @@ const ReadProperty = () => {
 
   return (
     <>
-      <div className="bg-[#05445E] text-white grid grid-cols-5">
+      <div className="text-white grid grid-cols-1 md:grid-cols-5  lg:grid-cols-5 xl:grid-cols-5 bg-[#05445E] ">
         <div className="col-span-1">
           <SideBar />
         </div>
         <div className="col-span-4 mt-5 mb-10">
-          <h1 className=" font-bold text-[30px] text-white mx-5 ">
+          <h1 className=" font-bold text-[30px] text-center md:text-left lg:text-left xl:text-left text-white mx-5 ">
             Property Details
           </h1>
           <div className=" bg-slate-300  rounded-lg  shadow-xl shadow-black flex flex-col mx-5 mt-5">
@@ -42,7 +42,7 @@ const ReadProperty = () => {
             </p>
             <div className=" grid grid-cols-1 mx-5 gap-5 mt-5">
               {/* Row 1 */}
-              <div className=" grid grid-cols-3 gap-4">
+              <div className=" grid grid-cols-1 md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-3 gap-4">
                 <div className=" flex justify-between bg-gradient-to-r from-[#F0A529] to-[#E18222] px-5 py-5 rounded-lg shadow-lg shadow-black">
                   <p className=" text-black font-semibold " htmlFor="name">
                     Property Name
@@ -69,7 +69,7 @@ const ReadProperty = () => {
                 </div>
               </div>
               {/* Row 2 */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-3 gap-4">
                 <div className="flex justify-between bg-gradient-to-r from-[#F0A529] to-[#E18222] px-5 py-5 rounded-lg shadow-lg shadow-black">
                   <p className=" text-black font-semibold " htmlFor="name">
                     Bedrooms
@@ -96,7 +96,7 @@ const ReadProperty = () => {
                 </div>
               </div>
               {/* Row 3 */}
-              <div className=" grid grid-cols-3 gap-4">
+              <div className=" grid grid-cols-1 md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-3 gap-4">
                 <div className="flex justify-between bg-gradient-to-r from-[#F0A529] to-[#E18222] px-5 py-5 rounded-lg shadow-lg shadow-black">
                   <p className=" text-black font-semibold " htmlFor="name">
                     Property Type
@@ -124,7 +124,7 @@ const ReadProperty = () => {
                 </div>
               </div>
               {/* Row 4 */}
-              <div className=" grid grid-cols-2 gap-4">
+              <div className=" grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2 gap-4">
                 <div className=" grid grid-cols-3 bg-gradient-to-r from-[#F0A529] to-[#E18222] px-5 py-5 rounded-lg shadow-lg shadow-black">
                   <p
                     className=" text-black font-semibold col-span-1"
@@ -154,7 +154,7 @@ const ReadProperty = () => {
                   </p>
                 </div>
               </div>
-              <div className=" grid grid-cols-6 bg-gradient-to-r from-[#F0A529] to-[#E18222] px-5 py-5 rounded-lg shadow-lg shadow-black">
+              <div className=" grid grid-cols-1 md:grid-cols-6  lg:grid-cols-6 xl:grid-cols-6 bg-gradient-to-r from-[#F0A529] to-[#E18222] px-5 py-5 rounded-lg shadow-lg shadow-black">
                 <p
                   className=" text-black font-semibold col-span-1"
                   htmlFor="name"

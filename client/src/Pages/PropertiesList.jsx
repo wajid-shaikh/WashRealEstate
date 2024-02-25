@@ -34,12 +34,12 @@ const PropertiesList = () => {
   }, []);
 
   return (
-    <div className=" grid grid-cols-5 bg-[#05445E]">
+    <div className=" grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 bg-[#05445E] h-screen content-start">
       <div className="col-span-1">
         <SideBar />
       </div>
       <div className="col-span-4 mt-5 mb-10">
-        <h1 className="font-bold text-[30px] text-white mx-5">
+        <h1 className="font-bold text-[30px] text-center md:text-left lg:text-left xl:text-left text-white mx-5">
           Properties List
         </h1>
         <div className="flex flex-col mx-5 mt-5">
@@ -57,12 +57,22 @@ const PropertiesList = () => {
                 <th className=" px-3 py-3  text-left">Sr.no.</th>
                 <th className=" px-3 py-3  text-left">Property Name</th>
                 {/* Hide Email and Contact columns on smaller devices */}
-                <th className="   px-3 py-3  text-left">Price</th>
-                <th className="   px-3 py-3  text-left">Property Type</th>
-                <th className=" px-3 py-3  text-left">Bedrooms</th>
-                <th className=" px-3 py-3  text-left">Bathrooms</th>
-                <th className=" px-3 py-3  text-left">Square Feet</th>
-                <th className=" px-3 py-3  text-left">Property Category</th>
+                <th className=" px-3 py-3  text-left">Price</th>
+                <th className=" px-3 py-3  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                  Property Type
+                </th>
+                <th className=" px-3 py-3  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                  Bedrooms
+                </th>
+                <th className=" px-3 py-3  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                  Bathrooms
+                </th>
+                <th className=" px-3 py-3  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                  Square Feet
+                </th>
+                <th className=" px-3 py-3  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                  Property Category
+                </th>
                 <th className=" px-3 py-3  text-left">Actions</th>
               </tr>
             </thead>
@@ -77,13 +87,19 @@ const PropertiesList = () => {
                   <td className="   px-3 py-2  text-left truncate max-w-[25ch]">
                     {item.price}
                   </td>
-                  <td className=" px-3 py-2  text-left truncate max-w-[20ch]">
+                  <td className=" px-3 py-2  text-left truncate max-w-[20ch] hidden md:table-cell lg:table-cell xl:table-cell">
                     {item.propertyType}
                   </td>
-                  <td className="   px-3 py-2  text-left">{item.bedrooms}</td>
-                  <td className="   px-3 py-2  text-left">{item.bathrooms}</td>
-                  <td className="   px-3 py-2  text-left">{item.squareFeet}</td>
-                  <td className="   px-3 py-2  text-left">
+                  <td className="   px-3 py-2  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                    {item.bedrooms}
+                  </td>
+                  <td className="   px-3 py-2  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                    {item.bathrooms}
+                  </td>
+                  <td className="   px-3 py-2  text-left hidden md:table-cell lg:table-cell xl:table-cell">
+                    {item.squareFeet}
+                  </td>
+                  <td className="   px-3 py-2  text-left hidden md:table-cell lg:table-cell xl:table-cell">
                     {item.propertyCategory}
                   </td>
                   <td className=" px-3 py-2  text-left space-x-1 flex flex-row">

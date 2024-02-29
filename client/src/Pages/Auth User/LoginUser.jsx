@@ -24,7 +24,7 @@ const LoginUser = ({}) => {
       setPassword("");
       setTimeout(() => {
         alert("Login successful");
-        history("/api/properties");
+        history("/");
       }, 1000);
     } catch (error) {
       setError("Invalid username or password");

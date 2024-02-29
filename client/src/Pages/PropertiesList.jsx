@@ -6,17 +6,27 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 
 const PropertiesList = () => {
   const API = import.meta.env.VITE_API_URL;
+  const token = localStorage.getItem("token");
+
+  const history = useNavigate();
   const [allProperties, setAllProperties] = useState([]);
 
   const getAllProperties = async () => {
     const response = await axios.get(`${API}/api/properties`, {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     });
+    if (response.data.message === "invalidUser") {
+      history(`${API}/api/login`);
+    }
+    console.log(response);
     setAllProperties(response.data);
   };
 

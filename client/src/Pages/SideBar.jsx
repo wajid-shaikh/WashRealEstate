@@ -28,10 +28,7 @@ const SideBar = () => {
           >
             Dashboard
           </Link>
-          <Link
-            to={"/api/propertieslist"}
-            className="py-2 px-4 hover:bg-gray-700"
-          >
+          <Link to={"/api/createuser"} className="py-2 px-4 hover:bg-gray-700">
             Users
           </Link>
           <Link

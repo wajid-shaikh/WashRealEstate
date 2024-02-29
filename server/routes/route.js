@@ -2,6 +2,8 @@ const express = require("express");
 const multer = require("multer");
 require("../db/conn");
 const propertyController = require("../controllers/propertyController");
+const authController = require("../controllers/authControllers");
+const isAuthenticated = require("../middlewares/isAuthenticated");
 const router = express.Router();
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Image upload by Multer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -24,7 +26,11 @@ router.post(
   propertyController.createProperty
 );
 
-router.get("/api/properties", propertyController.getAllProperties);
+router.get(
+  "/api/properties",
+  isAuthenticated,
+  propertyController.getAllProperties
+);
 
 router.get(`/api/readproperty/:id`, propertyController.getSingleProperty);
 
@@ -37,5 +43,8 @@ router.put(
 );
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Users API's <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+router.post("/api/signup", authController.signup);
+router.post("/api/login", authController.login);
 
 module.exports = router;

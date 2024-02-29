@@ -1,4 +1,5 @@
 const Property = require("../models/PropertyScema");
+const User = require("../models/userModel");
 
 exports.createProperty = async (req, res) => {
   // Logic for creating a new property
@@ -49,7 +50,9 @@ exports.getAllProperties = async (req, res) => {
   // Logic for getting all properties
   try {
     const properties = await Property.find();
+    // console.log(req.user);
     // console.log(properties);
+    // res.status(200).json({ properties, userInfo: req.user });
     res.status(200).json(properties);
   } catch (error) {
     console.error(error);

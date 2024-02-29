@@ -1,20 +1,64 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+// import useSignup from "../../hooks/useSignup";
 
 const CreateUser = () => {
+  const API = import.meta.env.VITE_API_URL;
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    contact: "",
+    country: "",
+    city: "",
+    zipCode: "",
+    address: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+    console.log(name, value);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(`${API}/api/signup`, userData);
+      setUserData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        contact: "",
+        country: "",
+        city: "",
+        zipCode: "",
+        address: "",
+      });
+      console.log("------------>", res); // Handle success response
+    } catch (err) {
+      console.error(err); // Handle error response
+    }
+  };
+
   return (
     <>
-      <div className="bg-[#05445E] h-screen">
+      <div className="bg-[#05445E] grid grid-cols-1 content-center h-full">
         <div className=" pt-5">
-          <h1 className="font-bold text-[30px] text-white mx-5">
+          <h1 className="font-bold text-[30px] text-white mx-5 md:mx-20  lg:mx-20 xl:mx-20 text-center">
             Create a User
           </h1>
         </div>
         <form
-          //   onSubmit={handleSubmit}
-          className=" flex flex-col mx-5 mt-5 font-semibold text-white"
+          onSubmit={handleSubmit}
+          className=" grid grid-cols-1 mx-5 md:mx-20  lg:mx-20 xl:mx-20 mt-5 font-semibold text-white"
         >
           <div className=" bg-slate-300 rounded-t-lg px-5 pt-5 shadow-black shadow-xl">
-            <div className=" grid grid-cols-2 gap-4">
+            <div className=" grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2  md:gap-4 lg:gap-4 xl:gap-4">
               <div className=" bg-gradient-to-r from-[#F0A529] to-[#E18222] px-4 py-5 rounded-md mb-5 shadow-black shadow-lg">
                 <div className=" grid grid-cols-1">
                   <div className=" mb-2">
@@ -23,8 +67,8 @@ const CreateUser = () => {
                       type="text"
                       id="firstName"
                       name="firstName"
-                      //   value={propertyData.firstName}
-                      //   onChange={handleChange}
+                      value={userData.firstName}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter your first name"
                     />
@@ -35,8 +79,8 @@ const CreateUser = () => {
                       type="text"
                       id="lastName"
                       name="lastName"
-                      //   value={propertyData.lastName}
-                      //   onChange={handleChange}
+                      value={userData.lastName}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter your last name"
                     />
@@ -52,8 +96,8 @@ const CreateUser = () => {
                       type="text"
                       id="email"
                       name="email"
-                      //   value={propertyData.description}
-                      //   onChange={handleChange}
+                      value={userData.email}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter your email"
                     />
@@ -65,8 +109,8 @@ const CreateUser = () => {
                         type="text"
                         id="password"
                         name="password"
-                        //   value={propertyData.password}
-                        //   onChange={handleChange}
+                        value={userData.password}
+                        onChange={handleChange}
                         className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                         placeholder="Enter your password"
                       />
@@ -87,7 +131,7 @@ const CreateUser = () => {
                 </div>
               </div>
             </div>
-            <div className=" grid grid-cols-2 gap-4">
+            <div className=" grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2  md:gap-4 lg:gap-4 xl:gap-4">
               <div className=" bg-gradient-to-r from-[#F0A529] to-[#E18222] px-4 py-5 rounded-md mb-5 shadow-black shadow-lg">
                 <div className=" grid grid-cols-2 gap-4">
                   <div className=" mb-2">
@@ -96,8 +140,8 @@ const CreateUser = () => {
                       type="text"
                       id="contact"
                       name="contact"
-                      //   value={propertyData.contact}
-                      //   onChange={handleChange}
+                      value={userData.contact}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter your contact"
                     />
@@ -108,8 +152,8 @@ const CreateUser = () => {
                       type="text"
                       id="country"
                       name="country"
-                      //   value={propertyData.country}
-                      //   onChange={handleChange}
+                      value={userData.country}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter your country"
                     />
@@ -123,8 +167,8 @@ const CreateUser = () => {
                       type="text"
                       id="city"
                       name="city"
-                      //   value={propertyData.city}
-                      //   onChange={handleChange}
+                      value={userData.city}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter your city"
                     />
@@ -135,8 +179,8 @@ const CreateUser = () => {
                       type="text"
                       id="zipCode"
                       name="zipCode"
-                      //   value={propertyData.zipCode}
-                      //   onChange={handleChange}
+                      value={userData.zipCode}
+                      onChange={handleChange}
                       className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700"
                       placeholder="Enter count of zipCode"
                     />
@@ -150,8 +194,8 @@ const CreateUser = () => {
                     type="text"
                     id="address"
                     name="address"
-                    //   value={propertyData.address}
-                    //   onChange={handleChange}
+                    value={userData.address}
+                    onChange={handleChange}
                     className=" w-full rounded-lg py-1 px-2 bg-slate-200 text-gray-700 resize-none"
                     placeholder="Enter your address"
                     rows={3}
@@ -162,12 +206,24 @@ const CreateUser = () => {
           </div>
           <button
             type="submit"
-            className="bg-orange-700 hover:bg-orange-600 rounded-b-lg py-4 px-2 w-full text-white shadow-black shadow-xl transition-all ease-in-out duration-500"
-            disabled
+            className="bg-orange-700 hover:bg-orange-600 rounded-b-lg py-4 px-2 w-full text-white shadow-black shadow-xl transition-all ease-in-out duration-500 cursor-pointer"
           >
-            Submit
+            Sign Up
           </button>
         </form>
+
+        <div className="grid grid-cols-2 gap-x-4 mx-5 md:mx-20  lg:mx-20 xl:mx-20 pt-5 ">
+          <Link to={"/api/login"}>
+            <div className=" bg-yellow-600 py-4 px-2 w-full cursor-pointer rounded-lg text-center font-bold text-white mb-5">
+              <button>Login</button>
+            </div>
+          </Link>
+          <Link to="/api/propertieslist">
+            <div className=" bg-blue-600 py-4 px-2 w-full cursor-pointer rounded-lg text-center font-bold text-white mb-5">
+              <button>Go Back ?</button>
+            </div>
+          </Link>
+        </div>
       </div>
     </>
   );

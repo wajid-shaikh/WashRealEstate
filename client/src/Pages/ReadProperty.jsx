@@ -171,11 +171,12 @@ const ReadProperty = () => {
                           style={{ height: "90px", width: "160px" }}
                         >
                           <img
-                            src={`${API}/${image}`}
-                            onError={(e) => {
-                              e.target.src =
-                                "https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-                            }}
+                            // src={`${API}/${image}`}
+                            // onError={(e) => {
+                            //   e.target.src =
+                            //     "https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+                            // }}
+                            src="https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Alternate Image"
                             className="object-cover hover:scale-125 transition-all ease-in-out duration-500"
                             style={{ width: "100%", height: "100%" }}

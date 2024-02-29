@@ -11,6 +11,7 @@ import PropertiesList from "./Pages/PropertiesList";
 import ReadProperty from "./Pages/ReadProperty";
 import UpdateProperty from "./Pages/UpdateProperty";
 import CreateUser from "./Pages/Auth User/CreateUser";
+import LoginUser from "./Pages/Auth User/LoginUser";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
 
           {/* // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User Routes <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
           <Route exact path="/api/createuser" element={<CreateUser />} />
+          <Route exact path="/api/login" element={<LoginUser />} />
         </Routes>
       </Router>
     </>

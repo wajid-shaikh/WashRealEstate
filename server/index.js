@@ -8,21 +8,20 @@ const Router = require("./routes/route");
 
 app.use("/uploads", express.static("uploads"));
 
-// Increase payload size limit (e.g., 10MB)
-// app.use(bodyParser.json({ limit: "10mb" }));
-// app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
-
-// Allow requests from washrealestate.vercel.app
-// const corsOptions = {
-//   //   origin: "https://washrealestate.vercel.app",
-//   origin: "https://localhost:8000",
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-// };
-
 // middlewares
 app.use(cors());
 app.use(express.json());
 app.use(Router);
 app.use(express.urlencoded({ extended: false }));
+
+// GLOBAL ERROR HANDLER
+app.use((err, req, res, next) => {
+  err.statusCode = err.statusCode || 500;
+  err.status = err.status || "error";
+  res.status(err.statusCode).json({
+    status: err.status,
+    message: err.message,
+  });
+});
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));

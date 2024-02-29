@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { propertiesSection } from "../Constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,6 +16,8 @@ import {
 
 const Property = () => {
   const API = import.meta.env.VITE_API_URL;
+  const token = localStorage.getItem("token");
+  const history = useNavigate();
   // console.log(API);
   const [allProperties, setAllProperties] = useState([]);
 
@@ -31,11 +33,20 @@ const Property = () => {
   const getAllProperties = async () => {
     try {
       const response = await axios.get(`${API}/api/properties`, {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
+      console.log(response);
+      // setAllProperties(response.data.properties);
       setAllProperties(response.data);
     } catch (error) {
-      console.error("Error fetching properties:", error);
+      if (error.response.data.message === "invalidUser") {
+        alert("Please login first");
+        history(`/api/login`);
+      }
+      // console.error("Error fetching properties:", error.response.data.message);
     }
   };
 
@@ -43,7 +54,7 @@ const Property = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     getAllProperties();
   }, [currentPage]);
-  console.log(currentItems);
+  // console.log(currentItems);
   // console.log(allProperties.images);
 
   return (
@@ -65,7 +76,8 @@ const Property = () => {
               <div className=" overflow-hidden inline-block h-1/2 rounded-t-lg">
                 {item.images.length > 0 && (
                   <img
-                    src={`${API}/${item.images[0]}`}
+                    // src={`${API}/${item.images[0]}`}
+                    src={`https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
                     alt="Alternate Image"
                     className="w-full rounded-t-lg hover:scale-125 transition-all ease-in-out duration-500 cursor-pointer"
                   />

@@ -13,6 +13,15 @@ app.use(cors());
 app.use(express.json());
 app.use(Router);
 app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://washrealestate.vercel.app"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 // GLOBAL ERROR HANDLER
 app.use((err, req, res, next) => {
